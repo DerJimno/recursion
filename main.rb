@@ -1,12 +1,22 @@
 # Assignment 1
-def fibs(num, arr = [])
-  first_num = 0
-  sec_num = 1
-  0..num.times do
-    arr << first_num
-    first_num, sec_num = sec_num, first_num + sec_num
+# Part 1:
+def fibs(num)
+  fib = [0,1]
+  until num == 2
+    fib << fib[-1] + fib[-2]
+    num -= 1
   end
-  arr 
+  fib
 end
+p fibs(5) # => [0, 1, 1, 2, 3]
 
-p fibs(8)
+# Part 2:
+@fib = [0,1]
+def fibs_rec(num)
+  return @fib if num == 2
+  @fib << @fib[-1] + @fib[-2]
+  fibs_rec(num - 1)
+end
+p fibs_rec(5)  # => [0, 1, 1, 2, 3]
+
+# Assignment 2 
